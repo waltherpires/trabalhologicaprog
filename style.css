@@ -32,16 +32,22 @@ h1 {
     padding-top: 5px;
 }
 
-.botao {
-    border-radius: 8px;
-    margin: 30px;
-    width: 200px;
-    height: 100px;
-}
-
 
 #sair {
     display: inline-block;
     width: 10vw;
     height: 10vh;
+}
+
+button {
+    margin: 30px;
+    width: 200px;
+    height: 100px;
+    border: 0;
+    border-radius: 8px;
+    background-color: #9C92A6;
+}
+
+button:hover {
+    background-color: #645e6bee; 
 }
