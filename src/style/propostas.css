@@ -4,6 +4,10 @@
     text-decoration: none;
 }
 
+body {
+    background-image: url(../images/imagemfundo.jpg);
+}
+
 header{
     background-color: #33333375;
     color: #fff;
@@ -29,7 +33,7 @@ h2 {
 }
 
 h2:hover {
-    background-color: #767676;
+    background-color: #7676768a;
 }
 
 main{

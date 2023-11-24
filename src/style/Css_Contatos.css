@@ -90,3 +90,10 @@ button {
 button:hover {
     background-color: #776f7f;
 }
+
+.info {
+    display: block;
+    background-color: #F2F2F2;
+    border-radius: 8px;
+    
+}
