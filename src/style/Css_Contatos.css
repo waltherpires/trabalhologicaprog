@@ -8,6 +8,8 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+
+    overflow: hidden;
 }
 
 header {
@@ -37,6 +39,9 @@ a {
     background-color: #33333384;
     padding: 20px;
     border-radius: 10px;
+
+    max-height: 70vh;
+    overflow: scroll
 }
 
 ol {
@@ -95,5 +100,4 @@ button:hover {
     display: block;
     background-color: #F2F2F2;
     border-radius: 8px;
-    
 }
