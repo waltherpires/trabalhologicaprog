@@ -4,6 +4,7 @@ document.addEventListener('click', function(e) {
     
     if(el.classList.contains('b1')) {
         let tabela1 = this.getElementById("t1")
+        
         if(flag === 0) {
             tabela1.style.display = "block"; 
             flag = 1;

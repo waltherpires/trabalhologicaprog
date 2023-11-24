@@ -62,15 +62,18 @@ footer{
 .tabela{
    background-color: antiquewhite;
    border-radius: 10px;
+   width: 90vw;
+}
+
+th {
+    padding-right: 20vw;
 }
 
 #t1, #t2, #t3 {
     display: none;
 }
 
-th{
-    padding: 10px;
-}
+
 
 button {
     width: 65px;
