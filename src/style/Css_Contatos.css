@@ -101,3 +101,7 @@ button:hover {
     background-color: #F2F2F2;
     border-radius: 8px;
 }
+
+th {
+    padding-right: 8vw;
+}
