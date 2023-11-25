@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
             detalhes.classList.add("info");
             detalhes.setAttribute('id', `detalhe${contatos.indexOf(contato) + 1}`);
             detalhes.style.display = 'none';
-            detalhes.innerHTML = `<p>Nome: ${contato.nome}</p> <p>Endereço: ${contato.endereco}</p> <p>Telefone: ${contato.telefone}</p> <p>E-mail: ${contato.email}</p> <button id="btneditar">Editar Contato</button> <button id="btnexcluir">Excluir Contato</button> <button id="btnproposta">Nova Proposta</button> <button id="btnmostrar">Propostas</button>`;
+            detalhes.innerHTML = `<p>Nome: ${contato.nome}</p> <p>Endereço: ${contato.endereco}</p> <p>Telefone: ${contato.telefone}</p> <p>E-mail: ${contato.email}</p> <button id="btneditar">Editar Contato</button> <button id="btnexcluir${contato.numero}">Excluir Contato</button> <button id="btnproposta">Nova Proposta</button> <button id="btnmostrar">Propostas</button>`;
 
             lista.appendChild(contatoNaLista);
             contatoNaLista.parentNode.insertBefore(detalhes, contatoNaLista.nextSibling);
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
         textoProposta.innerHTML = `<tr> <th>Num</th> <th>Data</th> <th>Valor</th> <th>Status</th></tr>`;
 
         propostas.forEach(function (proposta) {
-            htmldaProposta += `<tr> <td>${proposta.num}</td> <td>${proposta.data}</td> <td>${proposta.valor}</td> <td>${proposta.status}</td> </tr>`;
+        htmldaProposta += `<tr> <td>${proposta.num}</td> <td>${proposta.data}</td> <td>${proposta.valor}</td> <td>${proposta.status}</td> <td><button id="excluir">Excluir</button></td> </tr>`;
         });
 
         textoProposta.innerHTML += htmldaProposta;
@@ -68,6 +68,7 @@ document.addEventListener('click', function(e){
     //Cria novo Cliente
     if(el.classList.contains('criarcontato')){ 
         var novoContato = {
+            numero: contatos.length + 1,
             nome: prompt('Digite o nome'),
             endereco: prompt('Digite o endereco'),
             telefone: prompt('Digite o telefone'),
@@ -92,7 +93,7 @@ document.addEventListener('click', function(e){
             detalhes.classList.add("info");
             detalhes.setAttribute('id', `detalhe${contatos.length}`);
             detalhes.style.display = 'none';
-            detalhes.innerHTML = `<p>Nome: ${novoContato.nome}</p> <p>Endereço: ${novoContato.endereco}</p> <p>Telefone: ${novoContato.telefone}</p> <p>E-mail: ${novoContato.email}</p> <button id="btneditar">Editar Contato</button> <button id="btnexcluir">Excluir Contato</button> <button id="btnproposta">Nova Proposta</button> <button id="btnmostrar">Propostas</button>`;
+            detalhes.innerHTML = `<p>Nome: ${novoContato.nome}</p> <p>Endereço: ${novoContato.endereco}</p> <p>Telefone: ${novoContato.telefone}</p> <p>E-mail: ${novoContato.email}</p> <button id="btneditar">Editar Contato</button> <button id="btnexcluir${novoContato.numero}">Excluir Contato</button> <button id="btnproposta">Nova Proposta</button> <button id="btnmostrar">Propostas</button>`;
 
             document.getElementById("lista").appendChild(contatoNaLista); //Adiciona o cliente à lista
             contatoNaLista.parentNode.insertBefore(detalhes, contatoNaLista.nextSibling); //Adiciona os detalhes após o novo cliente
@@ -129,11 +130,20 @@ document.addEventListener('click', function(e){
         }
     
     }
-    
-    
-    
-/*     if(el.getAttribute('id') === "btnexcluir")
-    if(el.getAttribute('id') === "btnproposta") */
+   
+   for(let i = 1; i <= contatos.length; i++) {
+    if(el.getAttribute('id') === `btnexcluir${i}`) {
+        var confirmar = prompt("Tem certeza que deseja excluir este contato?");
+        if(confirmar === "sim" || "SIM" ||"s" ||"S") {
+            var x = document.getElementById(`btnexcluir${i}`).parentElement;
+            x = x.id.toString();
+            x = x.slice(-1);
+            console.log(x);
+        }
+       }
+   }
+
+    /*  if(el.getAttribute('id') === "btnproposta") */
 
 
     //Ligar e Desligar exibição dos detalhes
